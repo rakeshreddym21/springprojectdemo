@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>reports</title>
+</head>
+
+<body>
+
+<div class="container">
+
+	<h3>Reports</h3>
+	<hr>
+	
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>Diagnosis report</th>
+				<th>prescription</th>
+				<th>Customer</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="tempReport : ${reports}">
+
+				<td th:text="${tempReport.diagnosisReport}" />
+				<td th:text="${tempReport.prescription}" />
+				<td th:text="${tempReport.customer.customerName}" />
+
+				<td>
+					<!-- Add "update" button/link -->
+					<a th:href="@{/doctors/showFormForReportUpdate(reportId=${tempReport.id})}"
+					   class="btn btn-info btn-sm">
+						Update
+					</a>
+				</td>
+
+			</tr>
+		</tbody>		
+	</table>
+	
+</div>
+<a th:href="@{/doctors/listNa}">Back to Customers List</a>
+
+</body>
+</html>
+
+
+

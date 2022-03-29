@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+<h1>Welcome to Home Page of Spring Demo Assignment</h1>
+<a th:href="@{/admin}">Admin</a>
+<br>
+<a th:href="@{/customers/listNa}">Customers</a>
+<br>
+<a th:href="@{/doctors/listNa}">Doctors</a>
+<hr>
+Logged in user: <b th:inline="text"> [[${#httpServletRequest.remoteUser}]] </b>
+<form th:action="@{/logout}" method="POST">
+    <input type="submit" value="Logout"/>
+</form>
+</body>
+</html>
+
+

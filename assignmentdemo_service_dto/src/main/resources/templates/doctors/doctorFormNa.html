@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Save Doctor</title>
+	<style>
+    .error {
+        color: red;
+    }
+</style>
+
+</head>
+
+<body>
+
+	<div class="container">
+	
+		<h3>Doctor Directory</h3>
+		<hr>
+		
+		<p class="h4 mb-4">Save Doctor</p>
+	
+		<form action="#" th:action="@{/doctors/saveNa}"
+						 th:object="${doctor}" method="POST">
+		
+			<!-- Add hidden form field to handle update -->
+			<input type="hidden" th:field="*{id}" />
+			<p th:if="${#fields.hasErrors('doctorName')}"th:errorclass="error" th:errors="*{doctorName}"></p>
+
+			<input type="text" th:field="*{doctorName}"
+					class="form-control mb-4 col-4" placeholder="Doctor name">
+			<p th:if="${#fields.hasErrors('specialization')}"th:errorclass="error" th:errors="*{specialization}"></p>
+
+			<input type="text" th:field="*{specialization}"
+					class="form-control mb-4 col-4" placeholder="specialization">
+
+
+			<button type="submit" class="btn btn-info col-2">Save</button>
+						
+		</form>
+	
+		<hr>
+		<a th:href="@{/doctors/listNa}">Back to Doctors List</a>
+		
+	</div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
